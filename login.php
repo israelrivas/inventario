@@ -22,7 +22,11 @@ $login = new Login();
 if ($login->isUserLoggedIn() == true) {
     // the user is logged in. you can do whatever you want here.
     // for demonstration purposes, we simply show the "you are logged in" view.
-   header("location: stock.php");
+	if($_SESSION['user_type'] == 'admin'){
+   		header("location: stock.php");
+	}else{
+		header("location: traspasos.php");
+	}
 
 } else {
     // the user is not logged in. you can do whatever you want here.
@@ -58,7 +62,7 @@ if ($login->isUserLoggedIn() == true) {
 							echo $error;
 						}
 						?>
-						</div>
+						</div>	
 						<?php
 					}
 					if ($login->messages) {

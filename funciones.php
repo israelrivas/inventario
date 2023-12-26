@@ -34,4 +34,14 @@ function eliminar_stock($id_producto,$quantity){
 	}	
 		
 }
+
+function inputSeguro($post){
+    $string = trim($post);
+    $string = addslashes($string);
+    $string = htmlentities($string);
+    $seguro = strip_tags($string);
+    return $seguro;
+}
+
+
 ?>

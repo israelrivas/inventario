@@ -86,7 +86,7 @@
 				  <br>
                     <a href="#" class="btn btn-danger" onclick="eliminar('<?php echo $row['id_producto'];?>')" title="Eliminar"> <i class="glyphicon glyphicon-trash"></i> Eliminar </a> 
 					<a href="#myModal2" data-toggle="modal" data-codigo='<?php echo $row['codigo_producto'];?>' data-nombre='<?php echo $row['nombre_producto'];?>' data-categoria='<?php echo $row['id_categoria']?>' data-precio='<?php echo $row['precio_producto']?>' data-stock='<?php echo $row['stock'];?>' data-id='<?php echo $row['id_producto'];?>' class="btn btn-info" title="Editar"> <i class="glyphicon glyphicon-pencil"></i> Editar </a>	
-					
+					<a href="stock.php" class="btn btn-success" title="Regresar"> <i class="glyphicon glyphicon-arrow-left"></i> Regresar </a>
               </div>
 			  
               <div class="col-sm-4 text-left">
@@ -103,13 +103,13 @@
                       <span class="current-stock">Stock disponible</span>
                     </div>
                     <div class="col-sm-12 margin-btm-10">
-                      <span class="item-quantity"><?php echo number_format($row['stock'],2);?></span>
+                      <span class="item-quantity"><?php echo number_format($row['stock'],0);?></span>
                     </div>
 					<div class="col-sm-12">
                       <span class="current-stock"> Precio venta  </span>
                     </div>
 					<div class="col-sm-12">
-                      <span class="item-price">$ <?php echo number_format($row['precio_producto'],2);?></span>
+                      <span class="item-price">$ <?php echo number_format($row['precio_producto'],2);?> MXN</span>
                     </div>
 					
                     <div class="col-sm-12 margin-btm-10">
@@ -170,7 +170,7 @@
 							<td><?php echo date('H:i:s', strtotime($row['fecha']));?></td>
 							<td><?php echo $row['nota'];?></td>
 							<td><?php echo $row['referencia'];?></td>
-							<td class='text-center'><?php echo number_format($row['cantidad'],2);?></td>
+							<td class='text-center'><?php echo number_format($row['cantidad'],0);?></td>
 						</tr>		
 								<?php
 							}

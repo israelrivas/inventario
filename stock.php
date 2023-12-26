@@ -136,6 +136,10 @@ $( "#guardar_producto" ).submit(function( event ) {
 			success: function(datos){
 			$("#resultados_ajax_productos").html(datos);
 			$('#guardar_datos').attr("disabled", false);
+			$('#guardar_producto')[0].reset();
+			setTimeout(function() {
+				$("#resultados_ajax_productos").html(''); 
+			}, 3000);
 			load(1);
 		  }
 	});

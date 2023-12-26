@@ -134,3 +134,6 @@ http://work.smarchal.com/twbscolor/
 a {
 	color: #3c763d;
 }
+.ui-front {
+  z-index: 2000;
+}
