@@ -26,7 +26,15 @@ $sql_traspaso = "INSERT INTO traspasos (fecha_hora, type_of_move, comentarios, f
 $query_traspaso = mysqli_query($con, $sql_traspaso);
 $id_traspaso = mysqli_insert_id($con);
 if($id_traspaso == 0){
-    echo "Error al insertar el traspaso";
+    ?>
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close"
+                data-dismiss="alert" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+        <strong>Error!</strong> Lo siento algo ha salido mal
+        intenta nuevamente.
+    </div>
+    <?php
     exit;
 }
 foreach ($id_products as $key => $id_product) {
@@ -37,13 +45,27 @@ foreach ($id_products as $key => $id_product) {
     }
     $query_product = mysqli_query($con, $sql_product);
     if($query_product == 0){
-        echo "Error al actualizar el producto";
+        ?>
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close"
+                    data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            <strong>Error!</strong> Lo siento algo ha salido mal
+            intenta nuevamente.
+        </div>
+        <?php
         exit;
     }
     $sql_product_by_traspaso = "INSERT INTO porducts_by_traspaso (fk_id_traspaso, fk_product_id, piezas) 
                                 VALUES ('$id_traspaso', '$id_product', '$piezas[$key]')";
     $query_product_by_traspaso = mysqli_query($con, $sql_product_by_traspaso);
 }
-
+?>
+<div class="alert alert-success alert-dismissible" role="alert">
+    <button type="button" class="close"
+            data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+    <strong>Aviso!</strong> Traspaso aprobado exitosamente.
+</div>
 
 

@@ -31,15 +31,15 @@ if($action == 'ajax'){
     $query_by_date = " DATE(traspasos.fecha_hora) = '$fecha' ";
     if( $fecha != '' AND $q != '' ){
         $q = inputSeguro($_GET['q']);
-        echo $sql = "SELECT * FROM traspasos 
+        $sql = "SELECT * FROM traspasos 
                 LEFT JOIN users ON traspasos.fk_solicita_user_id = users.user_id
                 WHERE $quey_by_name OR $query_by_date";
     }elseif ($q != '' ) {
-        echo $sql = "SELECT * FROM traspasos 
+        $sql = "SELECT * FROM traspasos 
                 LEFT JOIN users ON traspasos.fk_solicita_user_id = users.user_id
                 WHERE $quey_by_name";
     }elseif ($fecha != '' ) {
-        echo $sql = "SELECT * FROM traspasos 
+        $sql = "SELECT * FROM traspasos 
                 LEFT JOIN users ON traspasos.fk_solicita_user_id = users.user_id
                 WHERE $query_by_date";
     }else{

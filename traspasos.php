@@ -22,7 +22,7 @@
 			<div class="panel panel-success">
 				<div class="panel-heading">
 					<div class="btn-group pull-right">
-						<button type='button' class="btn btn-success" data-toggle="modal" data-target="#nuevoTraspaso">
+						<button type='button' id="modal_traspaso" class="btn btn-success" data-toggle="modal" data-target="#nuevoTraspaso">
 							<span class="glyphicon glyphicon-plus" ></span>
 							Nuevo Traspaso
 						</button>

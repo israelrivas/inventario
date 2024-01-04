@@ -1,6 +1,9 @@
 $(document).ready(function() {
     load(1);
 });
+$("#modal_traspaso").click(function(){
+    $("#guardar_traspaso")[0].reset();
+});
 function load(page){
     let q = $("#q").val();
     let fecha = $("#fecha").val();
@@ -50,19 +53,28 @@ $(document).on("click", ".btn-remover-producto", function() {
     $(this).parent().parent().remove();
 });
 $( "#guardar_traspaso" ).submit(function( event ) {
+    event.preventDefault();
     $('#guardar_datos').attr("disabled", true);
     let parametros = $(this).serialize();
     $.ajax({
         type: "POST",
         url: "ajax/nuevo_traspaso.php",
         data: parametros,
+        beforeSend: function(objeto){
+            $("#resultados").html("Mensaje: Cargando...");
+        },
         success: function(datos){
+            load(1);
             setTimeout(function() {
-                location.reload();
+                $('#guardar_datos').attr("disabled", false);
+                $("#btn_cerrar_modal").click();
+                $("#resultados").html(datos);
+            }, 500);
+            setTimeout(function() {
+                $("#resultados").html("");
             }, 3000);
         }
     });
-    event.preventDefault();
 });
 
 $('#lista_productos').on('show.bs.modal', function (event) {

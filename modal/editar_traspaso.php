@@ -20,24 +20,15 @@
 					<input type="hidden" name="mod_id" id="mod_id">
 				</div>
 			  </div>
-			   
-			  
-			 
 			  <div class="form-group">
 				<label for="mod_descripcion" class="col-sm-3 control-label">Descripción</label>
 				<div class="col-sm-8">
 				  <textarea class="form-control" id="mod_descripcion" name="mod_descripcion" ></textarea>
 				</div>
 			  </div>
-			  
-			 
-			 
-			 
-			 
-			
 		  </div>
 		  <div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			<button type="button" class="btn btn-default" id="btn_cerrar_modal" data-dismiss="modal">Cerrar</button>
 			<button type="submit" class="btn btn-primary" id="actualizar_datos">Actualizar datos</button>
 		  </div>
 		  </form>

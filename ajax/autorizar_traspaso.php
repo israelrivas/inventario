@@ -5,7 +5,7 @@ include ("../funciones.php");
 session_start();
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']); 
-    echo $sql = "UPDATE traspasos SET fk_aprueba_user_id = '" . $_SESSION['user_id'] . "' WHERE id = '$id'";
+    $sql = "UPDATE traspasos SET fk_aprueba_user_id = '" . $_SESSION['user_id'] . "' WHERE id = '$id'";
     if (mysqli_query($con, $sql)) {
         ?>
         <div class="alert alert-success alert-dismissible" role="alert">
